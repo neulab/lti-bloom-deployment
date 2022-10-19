@@ -1,33 +1,20 @@
-# Fast Inference Solutions for BLOOM
+# LTI's Large Language Model Deployment
 
-This repo provides demos and packages to perform fast inference solutions for BLOOM. Some of the solutions have their own repos in which case a link to the corresponding repos is provided instead.
+**TODO**: Add a description of the project.
 
-Some of the solutions provide both half-precision and int8-quantized solution.
+This repo is a fork of the [huggingface](https://huggingface.co/)'s [BLOOM inference demos](https://github.com/huggingface/transformers-bloom-inference).
 
-## Client-side solutions
+## Installation
 
-Solutions developed to perform large batch inference locally:
+```bash
+pip install -e .
+```
 
-Pytorch:
+## Example API Usage
 
-* [Accelerate, DeepSpeed-Inference and DeepSpeed-ZeRO](./bloom-inference-scripts)
+```python
+import lti_llm_client
 
-* Thomas Wang is working on a Custom Fused Kernel solution - will link once it's ready for a general use.
-
-JAX:
-
-* [BLOOM Inference in JAX](https://github.com/huggingface/bloom-jax-inference)
-
-
-
-## Server solutions
-
-Solutions developed to be used in a server mode (i.e. varied batch size, varied request rate):
-
-Pytorch:
-
-* [Accelerate and DeepSpeed-Inference based solutions](./bloom-inference-server)
-
-Rust:
-
-* [Bloom-server](https://github.com/Narsil/bloomserver)
+client = lti_llm_client.Client()
+client.prompt("CMU's PhD students are")
+```
